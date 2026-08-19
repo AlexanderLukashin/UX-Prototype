@@ -1,0 +1,11 @@
+/* Core interaction hardening for navigation surfaces. */
+#projectButton,[data-tool="models"],#minimapButton{pointer-events:auto;touch-action:manipulation}
+@media(max-width:959px){
+  .minimap-button{right:8px;bottom:118px;z-index:31}
+  .camera-mode{right:8px;bottom:74px;z-index:25}
+  .minimap{right:8px;left:8px;bottom:184px;width:auto;z-index:65}
+}
+@media(max-width:520px){
+  .minimap-button{bottom:116px}
+  .minimap{bottom:180px}
+}

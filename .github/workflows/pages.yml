@@ -31,8 +31,8 @@ jobs:
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          s = s.replace('</head>', '  <link rel="stylesheet" href="interaction-fixes.css" />\n</head>')
-          s = s.replace('<script src="app.js"></script>', '<script src="app.js"></script>\n  <script src="ux-audit-fixes.js"></script>\n  <script src="interaction-fixes.js"></script>')
+          s = s.replace('</head>', '  <link rel="stylesheet" href="interaction-fixes.css" />\n  <link rel="stylesheet" href="core-interactions.css" />\n</head>')
+          s = s.replace('<script src="app.js"></script>', '<script src="app.js"></script>\n  <script src="core-interactions.js"></script>\n  <script src="ux-audit-fixes.js"></script>\n  <script src="interaction-fixes.js"></script>')
           p.write_text(s, encoding='utf-8')
           PY
       - name: Upload static site
