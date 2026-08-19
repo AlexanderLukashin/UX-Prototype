@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#dfe4e9" />
+  <meta name="description" content="ARMobile3D tablet UX prototype for construction control with BIM and AR." />
+  <title>ARMobile3D — Tablet UX Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="m21 8-9 5-9-5 9-5 9 5Z"/><path d="m3 8 9 5 9-5"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-ruler" viewBox="0 0 24 24"><path d="m4 17 13-13 3 3-13 13H4v-3Z"/><path d="m14 7 3 3M11 10l2 2M8 13l3 3"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.7"/></symbol>
+    <symbol id="i-eyeoff" viewBox="0 0 24 24"><path d="m3 3 18 18"/><path d="M10.6 6.2A9.5 9.5 0 0 1 12 6c6.5 0 10 6 10 6a18 18 0 0 1-3 3.7M6.4 6.4C3.5 8.2 2 12 2 12s3.5 6 10 6a9 9 0 0 0 3.3-.6"/><path d="M9.8 9.8a3 3 0 0 0 4.4 4.4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="i-focus" viewBox="0 0 24 24"><path d="M8 3H4a1 1 0 0 0-1 1v4M16 3h4a1 1 0 0 1 1 1v4M21 16v4a1 1 0 0 1-1 1h-4M8 21H4a1 1 0 0 1-1-1v-4"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 14h8l1-14M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 16-1 5 5-1L19 9l-4-4L4 16Z"/><path d="m13 7 4 4"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.5-2.5 1A8 8 0 0 0 15 6l-.4-2.7h-4L10 6a8 8 0 0 0-1.4 1L6 6 4 9.5 6.1 11a7 7 0 0 0 0 2L4 14.5 6 18l2.6-1a8 8 0 0 0 1.4 1l.5 2.7h4L15 18a8 8 0 0 0 1.4-1l2.5 1 2-3.5-2-1.5c.1-.3.1-.7.1-1Z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6h7l2 2h9v11H3V6Z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8 11 7.5-4.5M8 13l7.5 4.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-flash" viewBox="0 0 24 24"><path d="M13 2 5 13h6l-1 9 9-13h-6V2Z"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="M6 4v16M6 8h5M11 8v4M11 12h5M11 12v6M11 18h5"/><circle cx="18" cy="12" r="2"/><circle cx="18" cy="18" r="2"/><circle cx="6" cy="4" r="2"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 5-3 8 3 5-3v15l-5 3-8-3-5 3V6Z"/><path d="M8 3v15M16 6v15"/></symbol>
+    <symbol id="i-comment" viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 4V5Z"/></symbol>
+  </svg>
+
+  <div id="app" class="app" data-mode="bim">
+    <div class="tablet-only" id="tabletOnly">
+      <div class="tablet-only-card"><strong>Планшетный прототип</strong><span>Расширьте окно минимум до 960 px, чтобы увидеть рабочую компоновку.</span></div>
+    </div>
+
+    <main class="viewport" id="viewport">
+      <div class="viewport-bg bim-bg" id="bimScene" aria-hidden="true">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+          <defs>
+            <linearGradient id="floor" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#2c3945"/><stop offset="1" stop-color="#111a23"/></linearGradient>
+            <linearGradient id="slab" x1="0" x2="1"><stop stop-color="#d7e4ec"/><stop offset="1" stop-color="#8ca6b7"/></linearGradient>
+            <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9bbbc6" stop-opacity=".5"/><stop offset="1" stop-color="#304c5f" stop-opacity=".2"/></linearGradient>
+          </defs>
+          <rect width="1440" height="900" fill="url(#floor)"/>
+          <g stroke="#6d8291" stroke-width="1" opacity=".22"><path d="M0 720 720 350 1440 720M0 780 720 405 1440 780M0 840 720 460 1440 840"/><path d="M180 900 720 350M360 900 720 350M540 900 720 350M900 900 720 350M1080 900 720 350M1260 900 720 350"/></g>
+          <g id="building" stroke="#c6d4dc" stroke-width="2">
+            <path d="M350 590 720 400 1105 590 720 795Z" fill="#30404d"/><path d="M430 525 720 378 1008 526 720 677Z" fill="url(#slab)" opacity=".88"/><path d="M475 508 475 335 720 215 720 378Z" fill="#8ba2b1" opacity=".56"/><path d="M720 378 720 215 963 338 963 503Z" fill="#6f8797" opacity=".45"/><path d="M530 480 530 375 700 290 700 395Z" fill="url(#glass)"/><path d="M740 395 740 292 907 375 907 479Z" fill="url(#glass)"/><path d="M488 478 716 360 958 481" fill="none" stroke="#eff7fb" opacity=".55"/>
+            <g fill="none" stroke="#4bd3ff" stroke-width="10" stroke-linecap="round"><path d="M540 555 662 494 812 566 931 506"/><path d="M620 610 708 567 855 640"/></g><g fill="none" stroke="#ffbb73" stroke-width="7" stroke-linecap="round"><path d="M598 460 690 414 784 462 874 417"/></g>
+            <g fill="#cad9e2" stroke="#eaf3f7"><path d="M515 560 575 529 610 547 550 579Z"/><path d="M785 520 850 487 885 505 820 539Z"/><path d="M670 665 730 634 765 652 705 683Z"/></g>
+          </g>
+          <g opacity=".35" fill="none" stroke="#9fb1bd"><circle cx="720" cy="520" r="310"/><circle cx="720" cy="520" r="235"/><circle cx="720" cy="520" r="160"/></g>
+        </svg>
+      </div>
+      <div class="viewport-bg ar-bg" id="arScene" aria-hidden="true"><div class="ar-sky"></div><div class="ar-wall wall-a"></div><div class="ar-wall wall-b"></div><div class="ar-floor"></div><div class="ar-window w1"></div><div class="ar-window w2"></div><div class="ar-column c1"></div><div class="ar-column c2"></div><div class="ar-overlay-model" id="arOverlayModel"><div class="pipe pipe-a"></div><div class="pipe pipe-b"></div><div class="pipe pipe-c"></div><div class="duct duct-a"></div><div class="duct duct-b"></div></div><div class="reticle" id="reticle"><span></span></div></div>
+      <div class="hotspots" id="hotspots"></div><div class="marker-layer" id="markerLayer"></div><div class="ruler-layer hidden" id="rulerLayer"><div class="ruler-point rp1"></div><div class="ruler-line"></div><div class="ruler-point rp2"></div><div class="ruler-distance">3,42 м</div></div><div class="focus-pulse hidden" id="focusPulse"></div>
+    </main>
+
+    <header class="topbar glass"><button class="project-button" id="projectButton"><span class="project-dot"></span><span><small>ПРОЕКТ</small><strong id="projectName">ЖК Северный квартал</strong></span><svg><use href="#i-chevron"/></svg></button><div class="workspace-switch" role="tablist"><button class="workspace-tab active" data-workspace="scene">Сцена</button><button class="workspace-tab" data-workspace="remarks">Замечания <span class="badge">8</span></button></div><button class="icon-btn app-button" id="appButton" aria-label="Меню приложения"><svg><use href="#i-grid"/></svg></button></header>
+    <div class="mode-switch glass" id="modeSwitch"><button class="active" data-mode="bim">BIM</button><button data-mode="ar">AR</button></div>
+    <div class="scene-tools glass" id="sceneTools"><button class="tool-btn" data-tool="models"><svg><use href="#i-box"/></svg><span>Модели</span><b id="modelCount">3</b></button><button class="tool-btn" data-tool="positioning"><svg><use href="#i-pin"/></svg><span>Позиционирование</span></button><button class="tool-btn" data-tool="ruler"><svg><use href="#i-ruler"/></svg><span>Измерить</span></button><button class="tool-btn" data-tool="capture"><svg><use href="#i-camera"/></svg><span>Снимок</span></button></div>
+    <div class="camera-mode glass" id="cameraMode"><button class="active">Орбита</button><button>Осмотр</button></div>
+    <div class="ar-controls glass hidden" id="arControls"><div class="ar-slider"><span>Прозрачность BIM</span><strong id="opacityValue">72%</strong><input id="opacitySlider" type="range" min="10" max="100" value="72"></div><button class="toggle-row active" id="occlusionToggle"><span><svg><use href="#i-layers"/></svg>Учитывать окружение</span><i></i></button><button class="toggle-row" id="hiddenToggle"><span><svg><use href="#i-eye"/></svg>Показывать скрытое</span><i></i></button><button class="toggle-row" id="flashlightToggle"><span><svg><use href="#i-flash"/></svg>Фонарик</span><i></i></button></div>
+    <button class="ar-select primary-pill hidden" id="arSelect"><svg><use href="#i-target"/></svg> Выбрать</button><button class="show-all glass hidden" id="showAll"><svg><use href="#i-eye"/></svg> Показать всё <b id="hiddenCount">0</b></button><button class="minimap-button glass" id="minimapButton"><svg><use href="#i-map"/></svg><span>Карта</span><small>Этаж 7</small></button>
+    <section class="minimap glass hidden" id="minimap"><div class="panel-title compact"><div><small>MEF · Корпус 1</small><strong>Карта этажа</strong></div><button class="icon-btn sm" data-close="minimap"><svg><use href="#i-x"/></svg></button></div><div class="map-canvas"><svg viewBox="0 0 280 180"><g fill="none" stroke="#748596" stroke-width="8" stroke-linecap="round"><path d="M28 42h96v42h58V28h68v116h-86v-36H92v46H28Z"/></g><g stroke="#00a2e1" stroke-width="3" fill="none"><path d="M43 59h65v25H85v50H45Z"/><path d="M185 45h46v81h-52"/></g></svg><span class="map-user"></span><span class="map-remark r1"></span><span class="map-remark r2"></span><span class="map-marker m1">M</span></div><div class="floor-pills"><button>6</button><button class="active">7</button><button>8</button></div></section>
+
+    <section class="selection-card glass hidden" id="selectionCard"><div class="selection-info"><span class="selection-icon"><svg><use href="#i-box"/></svg></span><div><small id="selectionPath">Корпус 1 · Этаж 7 · ОВ</small><strong id="selectionName">Воздуховод П7-04</strong></div></div><div class="selection-actions"><button data-selection-action="attributes"><svg><use href="#i-info"/></svg>Атрибуты</button><button class="emphasis" data-selection-action="remark"><svg><use href="#i-comment"/></svg>Создать замечание</button><button data-selection-action="opacity"><svg><use href="#i-layers"/></svg>Прозрачность</button><button data-selection-action="hide"><svg><use href="#i-eyeoff"/></svg>Скрыть</button><button data-selection-action="focus"><svg><use href="#i-focus"/></svg>Фокус</button><button class="icon-btn sm" data-selection-action="clear" aria-label="Снять выбор"><svg><use href="#i-x"/></svg></button></div></section>
+
+    <section class="side-panel glass hidden" id="modelsPanel"><div class="panel-title"><div><small>СЦЕНА</small><strong>Модели</strong></div><button class="icon-btn" data-close="models"><svg><use href="#i-x"/></svg></button></div><div class="panel-copy">Загруженные в текущую сцену BIM-модели.</div><div class="model-list" id="modelList"></div><button class="primary-wide" id="addModelsButton"><svg><use href="#i-plus"/></svg> Добавить модели</button></section>
+    <section class="wide-panel glass hidden" id="addModelsPanel"><div class="panel-title"><div><small>ЖК СЕВЕРНЫЙ КВАРТАЛ</small><strong>Добавить модели</strong></div><button class="icon-btn" data-close="addModels"><svg><use href="#i-x"/></svg></button></div><label class="search-field"><svg><use href="#i-search"/></svg><input id="modelSearch" placeholder="Поиск по моделям и расположению"></label><div class="tree-header"><span>Модели проекта</span><small>Выберите конкретные модели из любых разделов</small></div><div class="model-tree" id="modelTree"></div><div class="panel-footer"><button class="secondary-wide" id="localPickerButton"><svg><use href="#i-folder"/></svg> Из локальных моделей…</button><button class="primary-wide fit" id="confirmAddModels" disabled>Добавить</button></div></section>
+    <section class="side-panel glass hidden" id="structurePanel"><div class="panel-title"><div><small id="structureModelLabel">Architecture_A</small><strong>Структура</strong></div><button class="icon-btn" data-close="structure"><svg><use href="#i-x"/></svg></button></div><label class="search-field"><svg><use href="#i-search"/></svg><input placeholder="Найти BIM-элемент"></label><div class="structure-tree" id="structureTree"></div><div class="structure-note">Выбор в дереве не перемещает камеру. Используйте «Фокус» отдельно.</div></section>
+    <section class="workflow-panel glass hidden" id="positioningPanel"><div class="workflow-head"><div><small>ПОЗИЦИОНИРОВАНИЕ · ВСЯ СЦЕНА</small><strong id="positioningTitle">Выберите способ</strong></div><button class="icon-btn" data-workflow="positioning-cancel"><svg><use href="#i-x"/></svg></button></div><div id="positioningBody"></div><div class="workflow-footer" id="positioningFooter"></div></section>
+    <section class="workflow-strip glass hidden" id="rulerStrip"><div><small>ИЗМЕРЕНИЕ</small><strong>Расстояние между точками: 3,42 м</strong></div><button class="secondary-pill" id="clearRuler">Сбросить</button><button class="primary-pill" id="doneRuler">Готово</button></section>
+    <section class="capture-editor glass hidden" id="captureEditor"><div class="capture-preview" id="capturePreview"><div class="capture-stamp">BIM · Этаж 7 · 19.08.2026 06:29</div><div class="markup-line mline1"></div><div class="markup-dot mdot1"></div></div><div class="capture-side"><div class="panel-title"><div><small>СНИМОК</small><strong>Разметка</strong></div><button class="icon-btn" data-close="capture"><svg><use href="#i-x"/></svg></button></div><p>3D-сцена и измерения уже сохранены в изображении. Добавьте 2D-разметку.</p><div class="markup-tools"><button class="active">Перо</button><button>Стрелка</button><button>Текст</button><button>Прямоугольник</button></div><div class="capture-actions"><button class="secondary-wide" id="shareCapture"><svg><use href="#i-share"/></svg> Поделиться</button><button class="primary-wide" id="saveCapture"><svg><use href="#i-download"/></svg> Сохранить</button></div></div></section>
+    <section class="remark-create glass hidden" id="remarkCreate"><div class="workflow-head"><div><small>НОВОЕ ЗАМЕЧАНИЕ · <span id="remarkStepLabel">ШАГ 1 ИЗ 3</span></small><strong id="remarkCreateTitle">Укажите точку на элементе</strong></div><button class="icon-btn" data-workflow="remark-cancel"><svg><use href="#i-x"/></svg></button></div><div class="remark-stepper"><span class="active">1</span><i></i><span>2</span><i></i><span>3</span></div><div id="remarkCreateBody"></div><div class="workflow-footer" id="remarkCreateFooter"></div></section>
+    <aside class="remarks-list glass hidden" id="remarksList"><div class="remarks-head"><div><small>ЖК СЕВЕРНЫЙ КВАРТАЛ</small><strong>Замечания</strong></div><button class="filter-button"><svg><use href="#i-settings"/></svg><span>Фильтры</span></button></div><div class="filter-pills"><button class="active" data-filter="all">Все <b>8</b></button><button data-filter="open">Открытые <b>5</b></button><button data-filter="mine">Мои <b>4</b></button></div><div class="remarks-scroll" id="remarksScroll"></div></aside>
+    <section class="remark-detail glass hidden" id="remarkDetail"></section><section class="review-card glass hidden" id="reviewCard"></section><div class="review-banner glass hidden" id="reviewBanner"><div><span class="live-dot"></span><strong>Проверка замечания</strong><small>Viewport остаётся частью Remarks</small></div><button class="secondary-pill" id="backToDetail">К деталям</button></div>
+    <section class="project-popover glass hidden" id="projectPopover"><div><small>ТЕКУЩИЙ ПРОЕКТ</small><strong id="projectPopoverName">ЖК Северный квартал</strong><p>Секция А · строительный контроль</p></div><button class="secondary-wide" id="changeProjectButton">Сменить проект</button></section>
+    <section class="app-popover glass hidden" id="appPopover"><button data-app-action="local"><svg><use href="#i-folder"/></svg><span><strong>Local models</strong><small>Локальная библиотека файлов</small></span></button><button data-app-action="settings"><svg><use href="#i-settings"/></svg><span><strong>Settings</strong><small>Настройки приложения и AR</small></span></button><button data-app-action="account"><svg><use href="#i-user"/></svg><span><strong>Александр Лукашин</strong><small>СтройКонтроль · Выйти</small></span></button></section>
+    <section class="app-sheet glass hidden" id="localModelsSheet"><div class="panel-title"><div><small>APP LEVEL</small><strong>Local models</strong></div><button class="icon-btn" data-close="localModels"><svg><use href="#i-x"/></svg></button></div><div class="library-toolbar"><button class="primary-pill"><svg><use href="#i-plus"/></svg> Импортировать файл</button><span>3 файла · 1,84 ГБ</span></div><div class="library-grid"><article><div class="file-preview blue"><svg><use href="#i-box"/></svg></div><strong>MEP_Level07.nwd</strong><small>682 МБ · 18 авг 2026</small><div><button>Экспорт</button><button>Удалить</button></div></article><article><div class="file-preview teal"><svg><use href="#i-box"/></svg></div><strong>Facade_Scan_RevC.ifc</strong><small>411 МБ · 16 авг 2026</small><div><button>Экспорт</button><button>Удалить</button></div></article><article><div class="file-preview slate"><svg><use href="#i-box"/></svg></div><strong>Parking_P2.nwc</strong><small>747 МБ · 09 авг 2026</small><div><button>Экспорт</button><button>Удалить</button></div></article></div><div class="library-note">Импорт файла не загружает его автоматически в открытую сцену.</div></section>
+    <section class="modal-backdrop hidden" id="modalBackdrop"><div class="modal glass" id="modal"></div></section><div class="toast hidden" id="toast"><svg><use href="#i-check"/></svg><span id="toastText">Готово</span></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
